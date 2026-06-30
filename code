@@ -10,18 +10,28 @@ int main() {
 
 	cout << "Enter your age: ";
 	cin >> age;
-	
+	while (age <= 0) {
+		cout << "Age cannot be negative. Please enter a valid age: ";
+		cin >> age;
+	}
 	cout << "Enter your height in inches: ";
 	cin >> height;
-	
-	if (age < 0 || height < 0) {
-		cout << "Age/height cannot be negative." << endl;
+	while (height <= 0) {
+		cout << "Height cannot be negative. Please enter a valid height: ";
+		cin >> height;
 	}
-	else if (age >= 16 && height >= 54) {
+	
+	if (age >= 16 && height >= 54) {
 		cout << "You can ride any ride here!" << endl;
 	}
-	else if (height >= 36 || age >= 8) {
+	else if (height >= 36 && age >= 8) {
 		cout << "You can ride most rides here!" << endl;
+	}
+	else if (height >= 36 && age < 8) {
+		cout << "You can ride some rides here!" << endl;
+	}
+	else if (height < 36 && age >= 8) {
+		cout << "You can ride a few rides here!" << endl;
 	}
 	else {
 		cout << "You cannot ride any rides here." << endl;
